@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <link rel="stylesheet" type="text/css" href="style/reset.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div class="poster">
+      <h1 id="logo">WEBP BURGER</h1>
+
+      <div class="scene">
+        <!-- 버거 -->
+        <div class="burger-area" id="burgerClick">
+          <div class="ingredient-row" data-ingredient="bun-top">
+            <img
+              src="pic/4x/Asset 1@4x.png"
+              class="burger-layer layer-bun-top"
+              alt="top bun"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>burger bun</strong>
+                us Webp Burger uses only organic wheat and eggs for customers
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="onion">
+            <img src="pic/4x/Asset 3@4x.png" class="burger-layer layer-onion" />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>onions</strong>
+                we cut freshly imported onions right away as you make an order
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="pickle">
+            <img
+              src="pic/4x/Asset 4@4x.png"
+              class="burger-layer layer-pickle"
+              alt="pickle"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>pickles</strong>
+                crunchy pickles that balance the rich flavors
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="tomato">
+            <img
+              src="pic/4x/Asset 5@4x.png"
+              class="burger-layer layer-tomato"
+              alt="tomato"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>tomatoes</strong>
+                juicy tomatoes sliced freshly for every order
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="cheese">
+            <img
+              src="pic/4x/Asset 16@4x.png"
+              class="burger-layer layer-cheese"
+              alt="cheese"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>cheese</strong>
+                melty cheese that hugs the patty
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="lettuce">
+            <img
+              src="pic/4x/Asset 6@4x.png"
+              class="burger-layer layer-lettuce"
+              alt="lettuce"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>salad</strong>
+                crispy green lettuce for a fresh bite
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="sauce">
+            <img
+              src="pic/4x/Asset 7@4x.png"
+              class="burger-layer layer-sauce sauce-mustard"
+              alt="sauce"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>sauce</strong>
+                our secret mustard &amp; ketchup blend
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="patty">
+            <img
+              src="pic/4x/Asset 8@4x.png"
+              class="burger-layer layer-patty"
+              alt="patty"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>patty</strong>
+                100% beef patty grilled to perfection
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="pineapple">
+            <img
+              src="pic/4x/Asset 9@4x.png"
+              class="burger-layer layer-pineapple"
+              alt="pineapple"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>grilled pineapple</strong>
+                it is the only way
+              </div>
+            </div>
+          </div>
+
+          <div class="ingredient-row" data-ingredient="bun-bottom">
+            <img
+              src="pic/4x/Asset 10@4x.png"
+              class="burger-layer layer-bun-bottom"
+              alt="bottom bun"
+            />
+            <div class="ingredient-label">
+              <span class="line"></span>
+              <div class="text">
+                <strong>bottom bun</strong>
+                soft and warm, catching every drop of flavor
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order 패널 -->
+        <div class="order-panel">
+          <h2>Order</h2>
+          <div class="order-line"></div>
+          <div class="order-main">
+            Webp Burger Original ........................ x 1
+          </div>
+          <div class="order-line"></div>
+
+          <div class="order-section-title">options</div>
+
+          <!-- BUNS -->
+          <div class="order-section-title">Buns</div>
+          <div class="choice-group" id="bunChoices">
+            <div class="choice selected" data-value="squid">
+              <span class="choice-circle"></span>
+              <span class="choice-label">Squid Ink Bun</span>
+            </div>
+            <div class="choice" data-value="plain">
+              <span class="choice-circle"></span>
+              <span class="choice-label">Plain Bun</span>
+            </div>
+          </div>
+
+          <!-- ONIONS -->
+          <div class="order-section-title">Onions</div>
+          <div class="opt-row">
+            <label for="opt-onion">no please</label>
+            <input
+              id="opt-onion"
+              type="checkbox"
+              class="topping-toggle"
+              data-target="onion"
+            />
+          </div>
+
+          <!-- PICKLES -->
+          <div class="order-section-title">Pickles</div>
+          <div class="opt-row">
+            <label for="opt-pickle">no please</label>
+            <input
+              id="opt-pickle"
+              type="checkbox"
+              class="topping-toggle"
+              data-target="pickle"
+            />
+          </div>
+
+          <!-- SAUCE (머스타드 / 케첩) -->
+          <div class="order-section-title">Sauce</div>
+          <div class="choice-group" id="sauceChoices">
+            <div class="choice selected" data-value="mustard">
+              <span class="choice-circle"></span>
+              <span class="choice-label">Mustard</span>
+            </div>
+            <div class="choice" data-value="ketchup">
+              <span class="choice-circle"></span>
+              <span class="choice-label">Ketchup</span>
+            </div>
+          </div>
+
+          <button class="done-btn">Done!</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
