@@ -1,0 +1,322 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: #ffeebc;
+  overflow-x: hidden;
+}
+
+.poster {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 로고 */
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 150px;
+  letter-spacing: 5px;
+  font-weight: 900;
+  color: #ff4a00;
+  transition: all 0.6s ease;
+  z-index: 5;
+}
+
+.poster.expanded #logo {
+  top: 20px;
+  font-size: 40px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 버거 전체 영역 */
+.burger-area {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -40%) scale(0.9);
+  width: 700px;
+  height: 650px;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+.poster.expanded .burger-area {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* 각 재료 줄 */
+.ingredient-row {
+  position: absolute;
+  left: 80%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 140px; /* ✅ 분해 상태에서 한 줄의 높이(셀 높이) */
+  transition: top 0.6s ease, opacity 0.4s ease;
+}
+
+.ingredient-row.ingredient-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 겹쳤을 때 위쪽 번이 맨 앞, 아래 번이 맨 뒤 */
+.ingredient-row[data-ingredient="bun-top"] {
+  z-index: 20;
+}
+.ingredient-row[data-ingredient="onion"] {
+  z-index: 19;
+}
+.ingredient-row[data-ingredient="pickle"] {
+  z-index: 18;
+}
+.ingredient-row[data-ingredient="tomato"] {
+  z-index: 17;
+}
+.ingredient-row[data-ingredient="cheese"] {
+  z-index: 16;
+}
+.ingredient-row[data-ingredient="lettuce"] {
+  z-index: 15;
+}
+.ingredient-row[data-ingredient="sauce"] {
+  z-index: 14;
+}
+.ingredient-row[data-ingredient="patty"] {
+  z-index: 13;
+}
+.ingredient-row[data-ingredient="pineapple"] {
+  z-index: 12;
+}
+.ingredient-row[data-ingredient="bun-bottom"] {
+  z-index: 11;
+}
+
+/* 재료 블럭 */
+.burger-layer {
+  .burger-layer {
+    position: absolute;
+    left: 50%;
+    top: 50%; /* ✅ 줄의 가운데에 배치 */
+    transform: translate(-50%, -50%);
+    max-height: 110px; /* 너무 크면 줄 안에 들어가도록 제한 */
+    width: auto; /* 비율 유지 */
+  }
+}
+
+/* 번은 기본을 'squid ink' 색으로 두고, plain일 때만 클래스 추가로 덮어씌움 */
+.layer-bun-top {
+  width: 300px;
+  height: auto;
+}
+.layer-bun-top::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 70px;
+  height: 26px;
+  background: #f7f0da;
+  opacity: 0.35;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.layer-bun-bottom {
+  width: 300px;
+  height: auto;
+}
+
+.layer-onion {
+  width: 300px;
+  height: auto;
+}
+
+.layer-pickle {
+  width: 300px;
+  height: auto;
+}
+
+.layer-tomato {
+  width: 300px;
+  height: auto;
+}
+
+.layer-cheese {
+  width: 320px;
+  height: auto;
+}
+
+.layer-lettuce {
+  width: 340px;
+  height: auto;
+}
+
+.layer-sauce {
+  width: 300px;
+  height: auto;
+}
+
+.layer-patty {
+  width: 300px;
+  height: auto;
+}
+
+.layer-pineapple {
+  width: 300px;
+  height: auto;
+}
+
+/* 설명 라벨 + 선 */
+.ingredient-label {
+  position: absolute;
+  left: 57%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  width: 320px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  font-size: 14px;
+}
+
+.poster.expanded .ingredient-label {
+  opacity: 1;
+}
+
+.ingredient-label .line {
+  flex: 1;
+  border-top: 2px solid #333;
+  margin-right: 8px;
+}
+
+.ingredient-label .text {
+  max-width: 220px;
+  line-height: 1.4;
+}
+
+.ingredient-label strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Order 패널 */
+.order-panel {
+  position: absolute;
+  left: 60px;
+  bottom: -600px;
+  width: 360px;
+  padding: 28px 28px 32px;
+  background: #fffddf;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+  transition: bottom 0.6s ease;
+  z-index: 10;
+}
+
+.poster.expanded .order-panel {
+  bottom: 60px;
+}
+
+.order-panel h2 {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 34px;
+}
+
+.order-line {
+  border-top: 1px solid #d9d3b5;
+  margin: 12px 0;
+}
+
+.order-main {
+  font-size: 16px;
+}
+
+.order-section-title {
+  margin: 18px 0 6px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.opt-row {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+.opt-row label {
+  cursor: pointer;
+}
+
+.opt-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #ff4a00;
+  cursor: pointer;
+}
+
+.order-panel .done-btn {
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  padding: 8px 20px;
+  border-radius: 10px;
+  background: #f4e7b4;
+  border: 1px solid #c7b98a;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* ====== NEW: Buns / Sauce 선택 동그라미 스타일 ====== */
+.choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.choice-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #444;
+  box-sizing: border-box;
+  opacity: 0; /* 기본: 안 보임 */
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+/* 현재 선택(굵은 동그라미) */
+.choice.selected .choice-circle {
+  opacity: 1;
+  background: #ffcf45;
+}
+
+/* hover 미리보기(연한 동그라미) */
+.choice.preview .choice-circle {
+  opacity: 0.4;
+  background: #ffcf45;
+}
