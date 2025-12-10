@@ -12,7 +12,6 @@ body {
   height: 100vh;
 }
 
-/* 로고 */
 #logo {
   position: absolute;
   top: 10px;
@@ -37,12 +36,11 @@ body {
   height: 100%;
 }
 
-/* 버거 전체 영역 */
 .burger-area {
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -40%) scale(0.9);
+  transform: translate(-40%, -40%) scale(1);
   width: 700px;
   height: 650px;
   cursor: pointer;
@@ -50,18 +48,17 @@ body {
 }
 
 .poster.expanded .burger-area {
-  top: 50%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(0.6);
 }
 
-/* 각 재료 줄 */
 .ingredient-row {
   position: absolute;
   left: 80%;
   transform: translateX(-50%);
   width: 700px;
-  height: 140px; /* ✅ 분해 상태에서 한 줄의 높이(셀 높이) */
+  height: 140px;
   transition: top 0.6s ease, opacity 0.4s ease;
 }
 
@@ -70,7 +67,6 @@ body {
   pointer-events: none;
 }
 
-/* 겹쳤을 때 위쪽 번이 맨 앞, 아래 번이 맨 뒤 */
 .ingredient-row[data-ingredient="bun-top"] {
   z-index: 20;
 }
@@ -102,19 +98,17 @@ body {
   z-index: 11;
 }
 
-/* 재료 블럭 */
 .burger-layer {
   .burger-layer {
     position: absolute;
     left: 50%;
-    top: 50%; /* ✅ 줄의 가운데에 배치 */
+    top: 50%;
     transform: translate(-50%, -50%);
-    max-height: 110px; /* 너무 크면 줄 안에 들어가도록 제한 */
-    width: auto; /* 비율 유지 */
+    max-height: 110px;
+    width: auto;
   }
 }
 
-/* 번은 기본을 'squid ink' 색으로 두고, plain일 때만 클래스 추가로 덮어씌움 */
 .layer-bun-top {
   width: 300px;
   height: auto;
@@ -177,18 +171,17 @@ body {
   height: auto;
 }
 
-/* 설명 라벨 + 선 */
 .ingredient-label {
   position: absolute;
-  left: 57%;
+  left: 60%;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
-  width: 320px;
+  width: 400px;
   opacity: 0;
   transition: opacity 0.6s ease;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .poster.expanded .ingredient-label {
@@ -202,18 +195,17 @@ body {
 }
 
 .ingredient-label .text {
-  max-width: 220px;
+  max-width: 300px;
   line-height: 1.4;
 }
 
 .ingredient-label strong {
   display: block;
   margin-bottom: 2px;
-  font-size: 15px;
+  font-size: 25px;
   color: #333;
 }
 
-/* Order 패널 */
 .order-panel {
   position: absolute;
   left: 60px;
@@ -284,7 +276,6 @@ body {
   font-size: 15px;
 }
 
-/* ====== NEW: Buns / Sauce 선택 동그라미 스타일 ====== */
 .choice-group {
   display: flex;
   flex-direction: column;
@@ -305,17 +296,15 @@ body {
   border-radius: 50%;
   border: 2px solid #444;
   box-sizing: border-box;
-  opacity: 0; /* 기본: 안 보임 */
+  opacity: 0;
   transition: opacity 0.2s ease, background 0.2s ease;
 }
 
-/* 현재 선택(굵은 동그라미) */
 .choice.selected .choice-circle {
   opacity: 1;
   background: #ffcf45;
 }
 
-/* hover 미리보기(연한 동그라미) */
 .choice.preview .choice-circle {
   opacity: 0.4;
   background: #ffcf45;
